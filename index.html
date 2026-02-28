@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASAAE Digital — Бизнес-план выхода на рынок РТ</title>
+<style>
+@font-face {
+  font-family: 'ALS Hauss';
+  src: url('ALS Hauss Next VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 200 850;
+  font-style: normal;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f5f3;
+  --text: #111111;
+  --subtle: #999999;
+  --green: #2d6a4f;
+  --blue: #1d8bab;
+  --gold: #d4a574;
+  --copper: #c4956a;
+  --light-gray: #e8e8e5;
+}
+
+html {
+  font-family: 'ALS Hauss', 'Helvetica Neue', Arial, sans-serif;
+  font-variation-settings: 'wght' 350, 'wdth' 500;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+#container::-webkit-scrollbar {
+  display: none;
+}
+
+#container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slide {
+  min-height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 80px;
+}
+
+@media (max-width: 768px) {
+  .slide { padding: 40px 28px; }
+}
+
+.slide-inner {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Typography scale */
+.t-title {
+  font-variation-settings: 'wght' 750, 'wdth' 500;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.t-subtitle {
+  font-variation-settings: 'wght' 500, 'wdth' 500;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.t-body {
+  font-variation-settings: 'wght' 350, 'wdth' 500;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+}
+
+.t-stat {
+  font-variation-settings: 'wght' 800, 'wdth' 500;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.t-stat-sm {
+  font-variation-settings: 'wght' 800, 'wdth' 500;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.t-label {
+  font-variation-settings: 'wght' 300, 'wdth' 500, 'ital' 6;
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  line-height: 1.4;
+  color: var(--subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.t-slide-num {
+  font-variation-settings: 'wght' 300, 'wdth' 500;
+  font-size: 0.75rem;
+  color: var(--subtle);
+  position: absolute;
+  top: 32px;
+  right: 40px;
+}
+
+@media (max-width: 768px) {
+  .t-slide-num { top: 20px; right: 20px; }
+}
+
+/* Gradient shapes */
+.gradient-blob {
+  position: absolute;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: linear-gradient(135deg, #2d6a4f 0%, #1d8bab 40%, #d4a574 100%);
+  opacity: 0.85;
+  filter: blur(0px);
+  z-index: 1;
+  animation: blobShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes blobShift {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%; }
+  50% { border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%; }
+  75% { border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%; }
+  100% { border-radius: 35% 65% 55% 45% / 45% 55% 65% 35%; }
+}
+
+.gradient-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--blue), var(--gold));
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.gradient-bar-thick {
+  height: 6px;
+  background: linear-gradient(90deg, var(--green), var(--blue), var(--gold));
+  border-radius: 3px;
+  margin: 24px 0;
+  width: 120px;
+}
+
+.gradient-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  display: inline-block;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* Full gradient slide */
+.slide-gradient {
+  background: linear-gradient(135deg, #2d6a4f 0%, #1a7a6a 25%, #1d8bab 50%, #3a7dbf 75%, #d4a574 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease-in-out infinite alternate;
+  color: #fff;
+}
+
+.slide-gradient .t-label {
+  color: rgba(255,255,255,0.6);
+}
+
+.slide-gradient .t-slide-num {
+  color: rgba(255,255,255,0.4);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Slide content patterns */
+.stat-row {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.stat-block {
+  flex: 1;
+  min-width: 160px;
+}
+
+.stat-block .t-label {
+  margin-top: 8px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 28px;
+}
+
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+  .stat-row { gap: 24px; }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card-dark {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bullet-list li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.bullet-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  display: inline-block;
+  margin-right: 14px;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.bullet-list-white li::before {
+  background: rgba(255,255,255,0.5);
+}
+
+/* SWOT grid */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+@media (max-width: 768px) {
+  .swot-grid { grid-template-columns: 1fr; }
+}
+
+.swot-cell {
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.swot-s { background: rgba(45,106,79,0.08); border: 1px solid rgba(45,106,79,0.15); }
+.swot-w { background: rgba(196,149,106,0.08); border: 1px solid rgba(196,149,106,0.15); }
+.swot-o { background: rgba(29,139,171,0.08); border: 1px solid rgba(29,139,171,0.15); }
+.swot-t { background: rgba(180,80,60,0.08); border: 1px solid rgba(180,80,60,0.15); }
+
+.swot-cell h3 {
+  font-variation-settings: 'wght' 650, 'wdth' 500;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.swot-s h3 { color: var(--green); }
+.swot-w h3 { color: var(--copper); }
+.swot-o h3 { color: var(--blue); }
+.swot-t h3 { color: #b4503c; }
+
+/* Timeline */
+.timeline {
+  display: flex;
+  gap: 0;
+  margin-top: 32px;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--blue), var(--gold), var(--copper));
+  border-radius: 2px;
+}
+
+.timeline-stage {
+  flex: 1;
+  padding-right: 16px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  margin-top: 32px;
+}
+
+.timeline-stage:nth-child(2) .timeline-dot {
+  background: linear-gradient(135deg, var(--blue), var(--gold));
+}
+
+.timeline-stage:nth-child(3) .timeline-dot {
+  background: linear-gradient(135deg, var(--gold), var(--copper));
+}
+
+.timeline-stage:nth-child(4) .timeline-dot {
+  background: var(--copper);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: auto;
+    width: 3px;
+    height: auto;
+  }
+  .timeline-stage {
+    padding-left: 32px;
+    padding-right: 0;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
+}
+
+/* Finance bars */
+.fin-bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.fin-bar-label {
+  font-variation-settings: 'wght' 400, 'wdth' 500;
+  font-size: 0.85rem;
+  width: 240px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .fin-bar-label { width: 120px; font-size: 0.75rem; }
+}
+
+.fin-bar-track {
+  flex: 1;
+  height: 28px;
+  background: var(--light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fin-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-variation-settings: 'wght' 600, 'wdth' 500;
+  font-size: 0.75rem;
+  color: #fff;
+  transition: width 1s ease;
+}
+
+/* Revenue model */
+.rev-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.rev-num {
+  font-variation-settings: 'wght' 800, 'wdth' 500;
+  font-size: 1.6rem;
+  color: var(--blue);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Risk cards */
+.risk-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.risk-label {
+  font-variation-settings: 'wght' 600, 'wdth' 500;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.risk-mitigation {
+  font-variation-settings: 'wght' 350, 'wdth' 500;
+  font-size: 0.85rem;
+  color: var(--subtle);
+  line-height: 1.5;
+  padding-left: 16px;
+  border-left: 2px solid var(--blue);
+  margin-top: 10px;
+}
+
+/* Progress bar */
+#progress-bar {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 18px;
+  background: var(--light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+#progress-bar:hover {
+  opacity: 1;
+}
+
+#progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), var(--blue), var(--gold));
+  border-radius: 4px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+#progress-label {
+  display: none;
+}
+
+/* Slide entrance animations */
+.slide-inner > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide.visible .slide-inner > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.visible .slide-inner > *:nth-child(1) { transition-delay: 0s; }
+.slide.visible .slide-inner > *:nth-child(2) { transition-delay: 0.08s; }
+.slide.visible .slide-inner > *:nth-child(3) { transition-delay: 0.16s; }
+.slide.visible .slide-inner > *:nth-child(4) { transition-delay: 0.24s; }
+.slide.visible .slide-inner > *:nth-child(5) { transition-delay: 0.32s; }
+.slide.visible .slide-inner > *:nth-child(6) { transition-delay: 0.4s; }
+.slide.visible .slide-inner > *:nth-child(7) { transition-delay: 0.48s; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--green), var(--blue), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Strategy grid cards */
+.strat-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.strat-card .t-label {
+  margin-bottom: 6px;
+}
+
+.strat-card-title {
+  font-variation-settings: 'wght' 550, 'wdth' 500;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* Spacers */
+.mt-8  { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mb-8  { margin-bottom: 8px; }
+.mb-12 { margin-bottom: 12px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* Services list */
+.service-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: baseline;
+}
+
+.service-bullet {
+  font-variation-settings: 'wght' 700, 'wdth' 500;
+  font-size: 0.7rem;
+  color: var(--blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.service-title {
+  font-variation-settings: 'wght' 550, 'wdth' 500;
+  font-size: 0.95rem;
+}
+
+.service-desc {
+  font-variation-settings: 'wght' 330, 'wdth' 500;
+  font-size: 0.85rem;
+  color: var(--subtle);
+  margin-top: 3px;
+  line-height: 1.45;
+}
+
+/* Gradient corner accents */
+.corner-accent {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: -100px;
+  left: -100px;
+  background: var(--green);
+}
+
+.corner-br {
+  bottom: -100px;
+  right: -100px;
+  background: var(--blue);
+}
+
+.corner-tr {
+  top: -100px;
+  right: -100px;
+  background: var(--gold);
+}
+
+/* Stage label */
+.stage-label {
+  font-variation-settings: 'wght' 700, 'wdth' 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--green);
+}
+
+.timeline-stage:nth-child(2) .stage-label { color: var(--blue); }
+.timeline-stage:nth-child(3) .stage-label { color: var(--gold); }
+.timeline-stage:nth-child(4) .stage-label { color: var(--copper); }
+
+.stage-title {
+  font-variation-settings: 'wght' 600, 'wdth' 500;
+  font-size: 1rem;
+  margin: 8px 0 6px;
+}
+
+.stage-desc {
+  font-variation-settings: 'wght' 330, 'wdth' 500;
+  font-size: 0.82rem;
+  color: var(--subtle);
+  line-height: 1.45;
+}
+</style>
+</head>
+<body>
+
+<div id="container">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide" data-slide="1">
+    <div class="gradient-blob" style="width: 55vw; height: 70vh; top: 15vh; right: -5vw;"></div>
+    <span class="t-slide-num">01 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-16">Бизнес-план выхода на рынок Республики Таджикистан</p>
+      <h1 class="t-title" style="font-size: clamp(3rem, 7vw, 6rem);">ASAAE<br>Digital.</h1>
+      <div class="gradient-bar-thick mt-32"></div>
+      <p class="t-body mt-20" style="max-width: 480px;">Стратегический партнёр государства и бизнеса в области ИИ и кибербезопасности</p>
+      <p class="t-label mt-32">ООО «Чахон ИТ» &nbsp;&middot;&nbsp; asaae.tj &nbsp;&middot;&nbsp; 2026</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Резюме -->
+  <div class="slide" data-slide="2">
+    <div class="corner-accent corner-tr"></div>
+    <span class="t-slide-num">02 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Резюме проекта</p>
+      <h2 class="t-title">Занять нишу<br><span class="gradient-text">стратегического партнёра</span></h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <p class="t-body mt-16" style="max-width: 700px;">Стратегия выхода и операционной деятельности IT-компании «Чахон ИТ» под брендом ASAAE Digital — с фокусом на ИИ и кибербезопасность в рамках национальной цифровизации.</p>
+      <ul class="bullet-list mt-24">
+        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Соответствие госстратегии:</strong> полная корреляция с «Концепцией цифровой экономики 2025–2030», «Стратегией ИИ до 2040» и Программой национального развития 2026–2030</span></li>
+        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Уникальная экспертиза:</strong> ИИ + кибербезопасность выделяют компанию на фоне локальных игроков, предлагающих стандартную автоматизацию</span></li>
+        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Перспективный рынок:</strong> растущий спрос на кибербезопасность в банковском секторе и госорганах, формирование ИИ-экосистемы (Area AI 1.0, Академия ИИ)</span></li>
+      </ul>
+      <div class="stat-row mt-32">
+        <div class="stat-block">
+          <div class="t-stat-sm">~$260K</div>
+          <p class="t-label">инвестиции</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat-sm">2.5–3.5</div>
+          <p class="t-label">года окупаемость</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: Почему Таджикистан -->
+  <div class="slide" data-slide="3">
+    <div class="corner-accent corner-tl"></div>
+    <div class="corner-accent corner-br"></div>
+    <span class="t-slide-num">03 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Макроэкономика</p>
+      <h2 class="t-title">Почему Таджикистан.<br>Почему сейчас.</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="t-stat">8.4%</div>
+          <p class="t-label">рост ВВП в 2024</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat">$4.9B</div>
+          <p class="t-label">прямые инвестиции (+73%)</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat">B</div>
+          <p class="t-label">рейтинг S&P (повышен)</p>
+        </div>
+      </div>
+      <p class="t-body mt-32" style="max-width: 680px;">Указ Президента: 2025–2030 — «Годы цифровой экономики и инновационного развития». Семь приоритетных направлений, включая ИИ, кибербезопасность и цифровую инфраструктуру.</p>
+      <p class="t-body mt-12" style="max-width: 680px; color: var(--subtle);">IT Park Dushanbe: 0% налог на прибыль, 0% НДС, 0% на дивиденды для резидентов. 22 одобренных направления инноваций.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Стратегические документы -->
+  <div class="slide" data-slide="4">
+    <div class="corner-accent corner-tr"></div>
+    <span class="t-slide-num">04 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Нормативная база</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Стратегические документы</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-3 mt-24">
+        <div class="strat-card">
+          <p class="t-label">2025–2030</p>
+          <p class="strat-card-title">Годы цифровой экономики и инновационного развития</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Приоритизация цифровизации всех отраслей, бюджеты и преференции для IT</p>
+        </div>
+        <div class="strat-card">
+          <p class="t-label">до 2040</p>
+          <p class="strat-card-title">Стратегия развития ИИ в РТ</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Первая в ЦА. Академия ИИ, Area AI, ИИ в вузах. Цель: 5% ВВП от ИИ</p>
+        </div>
+        <div class="strat-card">
+          <p class="t-label">2025–2029</p>
+          <p class="strat-card-title">Развитие электронной коммерции</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Рост онлайн-платежей — повышение спроса на кибербезопасность и антифрод</p>
+        </div>
+        <div class="strat-card">
+          <p class="t-label">2026–2030</p>
+          <p class="strat-card-title">Программа национального развития</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Цифровизация, индустриализация, ИИ и поддержка R&D</p>
+        </div>
+        <div class="strat-card">
+          <p class="t-label">2025</p>
+          <p class="strat-card-title">Резолюция Генассамблеи ООН</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Инициатива Таджикистана: роль ИИ в устойчивом развитии ЦА. Региональный лидер</p>
+        </div>
+        <div class="strat-card">
+          <p class="t-label">2024</p>
+          <p class="strat-card-title">Новый закон об инвестициях</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Улучшенная правовая защита для инвестиций в инновации</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: ИИ-амбиции -->
+  <div class="slide slide-gradient" data-slide="5">
+    <span class="t-slide-num">05 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Искусственный интеллект</p>
+      <h2 class="t-title" style="color: #fff;">ИИ-амбиции:<br>самые смелые в ЦА</h2>
+      <div style="height: 4px; width: 80px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 20px 0;"></div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="t-stat" style="color: #fff;">$117M</div>
+          <p class="t-label">соглашения на AI Conf 2025</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat" style="color: #fff;">2040</div>
+          <p class="t-label">горизонт стратегии ИИ</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat" style="color: #fff;">700+</div>
+          <p class="t-label">обученных специалистов</p>
+        </div>
+      </div>
+      <ul class="bullet-list bullet-list-white mt-32" style="max-width: 700px;">
+        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">Area AI 1.0 — первая в мире «Специальная зона ИИ», хаб в Душанбе</span></li>
+        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">Партнёрства: Google DeepMind, NVIDIA, Perplexity AI, Mistral AI, Scale AI</span></li>
+        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">Резолюция ООН (единогласно): Региональный центр ИИ в Душанбе</span></li>
+        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">SoroLLM — языковая модель на 27 млрд параметров для таджикского языка</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: Кибербезопасность: проблема -->
+  <div class="slide" data-slide="6">
+    <div class="corner-accent corner-tl" style="background: #b4503c;"></div>
+    <span class="t-slide-num">06 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Кибербезопасность</p>
+      <h2 class="t-title">Критические уязвимости</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="t-stat" style="color: #b4503c;">60.69%</div>
+          <p class="t-label">пользователей атакованы (лидер СНГ)</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat" style="color: #b4503c;">2.6&times;</div>
+          <p class="t-label">рост атак Q2 2024 vs Q2 2023</p>
+        </div>
+      </div>
+      <div class="grid-2 mt-32">
+        <div>
+          <p class="t-subtitle mb-12">Институциональные пробелы</p>
+          <ul class="bullet-list">
+            <li><span class="t-body">Нет национального CERT (есть у Казахстана, Узбекистана, Кыргызстана)</span></li>
+            <li><span class="t-body">Нет обязательного регулирования кибербезопасности в банках</span></li>
+            <li><span class="t-body">28% целевых атак — на финансовый сектор</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="t-subtitle mb-12">Ландшафт угроз</p>
+          <ul class="bullet-list">
+            <li><span class="t-body">YoroTrooper и SneakyChef таргетируют регион</span></li>
+            <li><span class="t-body">Фишинг, ransomware, DDoS — основные вектора</span></li>
+            <li><span class="t-body">ИИ-оружие: дипфейки, фейковые чат-боты</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: Банковский сектор -->
+  <div class="slide" data-slide="7">
+    <div class="corner-accent corner-br"></div>
+    <span class="t-slide-num">07 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Финансовый сектор</p>
+      <h2 class="t-title">Банковский бум<br><span class="gradient-text">создаёт спрос</span></h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <div class="t-stat">54.9B</div>
+          <p class="t-label">сомони активов (+36.6%)</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat">9.1M</div>
+          <p class="t-label">банковских карт (+20.5%)</p>
+        </div>
+        <div class="stat-block">
+          <div class="t-stat">56.3M</div>
+          <p class="t-label">транзакций за H1 2025</p>
+        </div>
+      </div>
+      <div class="grid-2 mt-32">
+        <div>
+          <ul class="bullet-list">
+            <li><span class="t-body">Alif Bank: 2.2M+ клиентов, 50%+ Visa-платежей в РТ</span></li>
+            <li><span class="t-body">Freedom Bank: первая цифровая ипотека, рост портфеля на 173%</span></li>
+            <li><span class="t-body">Humo и Imon получили полные банковские лицензии в 2025</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="bullet-list">
+            <li><span class="t-body">Безналичные платежи: 38.9% оборота, прогноз 55–65% к 2030</span></li>
+            <li><span class="t-body">Переводы: $5.8B в 2024 (45% ВВП) через цифровые каналы</span></li>
+            <li><span class="t-body">Google Pay запущен в 2024, Korti Milli + HUMO интеграция</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: Зоны роста -->
+  <div class="slide slide-gradient" data-slide="8">
+    <span class="t-slide-num">08 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Рыночный анализ</p>
+      <h2 class="t-title" style="color: #fff;">Три зоны роста</h2>
+      <div style="height: 4px; width: 80px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 20px 0;"></div>
+      <div class="grid-3">
+        <div class="card-dark">
+          <p class="t-stat-sm" style="color: #fff;">01</p>
+          <p class="t-subtitle mt-12" style="color: #fff;">ИИ для госуслуг и бизнеса</p>
+          <p class="t-body mt-8" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">AI GOV, предиктивная аналитика для ГЭС и горной отрасли, оптимизация сельского хозяйства</p>
+        </div>
+        <div class="card-dark">
+          <p class="t-stat-sm" style="color: #fff;">02</p>
+          <p class="t-subtitle mt-12" style="color: #fff;">Кибербезопасность</p>
+          <p class="t-body mt-8" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">Финсектор: антифрод, защита платежей. Госсектор: защита баз данных. Корпоративный: MSS, пентесты, compliance</p>
+        </div>
+        <div class="card-dark">
+          <p class="t-stat-sm" style="color: #fff;">03</p>
+          <p class="t-subtitle mt-12" style="color: #fff;">Облачная инфраструктура</p>
+          <p class="t-body mt-8" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">ЦОД, частные облака, миграция данных, безопасность облачных сред</p>
+        </div>
+      </div>
+      <p class="t-body mt-32" style="color: rgba(255,255,255,0.7); max-width: 600px;">Наибольший потенциал и государственная поддержка сконцентрированы в ИИ и кибербезопасности. Нет доминирующего локального игрока в кибербезопасности.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: SWOT -->
+  <div class="slide" data-slide="9">
+    <span class="t-slide-num">09 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Стратегический анализ</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">SWOT-анализ</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="swot-grid">
+        <div class="swot-cell swot-s">
+          <h3>S &mdash; Сильные стороны</h3>
+          <ul class="bullet-list">
+            <li><span class="t-body" style="font-size: 0.85rem;">Экспертиза в ИИ, нейросетях и кибербезопасности</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Гибкость частной компании</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Бренд с локальным доменом (.tj)</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Опыт разработки сложных ИС</span></li>
+          </ul>
+        </div>
+        <div class="swot-cell swot-w">
+          <h3>W &mdash; Слабые стороны</h3>
+          <ul class="bullet-list">
+            <li><span class="t-body" style="font-size: 0.85rem;">Нет локальной репутации и кейсов</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Незнание местных бизнес-процессов</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Зависимость от найма локальных кадров</span></li>
+          </ul>
+        </div>
+        <div class="swot-cell swot-o">
+          <h3>O &mdash; Возможности</h3>
+          <ul class="bullet-list">
+            <li><span class="t-body" style="font-size: 0.85rem;">Полное соответствие госстратегии «Цифровая экономика 2025–2030»</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Высокий неудовлетворённый спрос на кибербезопасность</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Господдержка ИИ (Area AI, Академия)</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Потенциал экспорта ИИ-услуг</span></li>
+          </ul>
+        </div>
+        <div class="swot-cell swot-t">
+          <h3>T &mdash; Угрозы</h3>
+          <ul class="bullet-list">
+            <li><span class="t-body" style="font-size: 0.85rem;">Кадровый голод: дефицит security-специалистов</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Политическая и экономическая нестабильность</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Риски доступа к зарубежным технологиям</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Высокая стоимость входа в госсектор</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: Направление 1 — Кибербезопасность -->
+  <div class="slide" data-slide="10">
+    <div class="corner-accent corner-tl"></div>
+    <span class="t-slide-num">10 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Направление 1</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Кибербезопасность</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-2 mt-16">
+        <div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Аудит и консалтинг</p>
+              <p class="service-desc">Оценка защищённости ИС, анализ рисков, приведение в соответствие с требованиями регуляторов</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Тестирование на проникновение</p>
+              <p class="service-desc">Поиск уязвимостей в веб- и мобильных приложениях, инфраструктуре заказчика</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Managed Security Services</p>
+              <p class="service-desc">Мониторинг ИБ (SIEM), управление средствами защиты, реагирование на инциденты</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Защита от фрода</p>
+              <p class="service-desc">ИИ-системы анализа транзакций в реальном времени для банков и финтех</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Облачная безопасность</p>
+              <p class="service-desc">Защита данных и приложений в облачных средах, контроль доступа</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="t-body mt-24" style="color: var(--subtle); max-width: 600px;">Целевые клиенты: банки (25% IT-бюджета на безопасность), госорганы, финтех-компании. AFOT определила кибербезопасность стратегическим приоритетом на 2025.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: Направление 2 — ИИ и Data Science -->
+  <div class="slide" data-slide="11">
+    <div class="corner-accent corner-br"></div>
+    <span class="t-slide-num">11 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Направление 2</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">ИИ и Data Science</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-2 mt-16">
+        <div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Промышленный ИИ</p>
+              <p class="service-desc">Нейросети для предиктивной диагностики турбин ГЭС и горного оборудования. Компьютерное зрение для контроля ТБ</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">ИИ для госсектора (AI GOV)</p>
+              <p class="service-desc">Чат-боты и голосовые помощники на таджикском и русском (NLP). Системы поддержки принятия решений</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Бизнес-аналитика</p>
+              <p class="service-desc">ИИ-модели для прогнозирования спроса, оптимизации логистики, скоринга в кредитных организациях</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Сельское хозяйство</p>
+              <p class="service-desc">ИИ-системы оптимизации орошения и прогнозирования урожайности — критически важно для РТ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 12: Проект — AI HR Agent -->
+  <div class="slide" data-slide="12">
+    <div class="corner-accent corner-br" style="background: var(--blue);"></div>
+    <span class="t-slide-num">12 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Проект</p>
+      <h2 class="t-title"><span class="gradient-text">AI HR Agent</span></h2>
+      <div class="gradient-bar-thick"></div>
+      <p class="t-body mt-16" style="color: var(--subtle); max-width: 600px;">&nbsp;</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 13: Проект — Anti-fraud System -->
+  <div class="slide" data-slide="13">
+    <div class="corner-accent corner-tl" style="background: var(--green);"></div>
+    <span class="t-slide-num">13 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Проект</p>
+      <h2 class="t-title"><span class="gradient-text">Anti-fraud System</span></h2>
+      <div class="gradient-bar-thick"></div>
+      <p class="t-body mt-16" style="color: var(--subtle); max-width: 600px;">&nbsp;</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 14: Направление 3 — Разработка ПО -->
+  <div class="slide" data-slide="14">
+    <div class="corner-accent corner-tr"></div>
+    <span class="t-slide-num">14 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Направление 3</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Разработка ПО</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-3 mt-24">
+        <div class="card">
+          <p class="t-subtitle mb-8">ERP / CRM</p>
+          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Кастомные системы для локального бизнеса с фокусом на безопасность и интеграцию с ИИ-сервисами</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Госсистемы</p>
+          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Ведомственные ИС, электронный документооборот, порталы данных для государственных заказчиков</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Облачные решения</p>
+          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">SaaS-платформы, частные облака, миграция и обеспечение безопасности в облачных средах</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 15: План реализации -->
+  <div class="slide" data-slide="15">
+    <span class="t-slide-num">15 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Дорожная карта</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">План реализации</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="timeline">
+        <div class="timeline-stage">
+          <p class="stage-label">Месяцы 1–3</p>
+          <div class="timeline-dot"></div>
+          <p class="stage-title">Подготовка</p>
+          <p class="stage-desc">Регистрация ООО, запуск asaae.tj, контакты с Агентством инноваций, партнёрство с Area AI и Академией ИИ, найм ключевых сотрудников</p>
+        </div>
+        <div class="timeline-stage">
+          <p class="stage-label">Месяцы 4–9</p>
+          <div class="timeline-dot"></div>
+          <p class="stage-title">Пилотные проекты</p>
+          <p class="stage-desc">Бесплатный аудит безопасности для 1–2 банков, ИИ-пилот для промышленного предприятия, участие в Digital Tajikistan 2026</p>
+        </div>
+        <div class="timeline-stage">
+          <p class="stage-label">Месяцы 10–18</p>
+          <div class="timeline-dot"></div>
+          <p class="stage-title">Коммерция</p>
+          <p class="stage-desc">Запуск продаж MSS (подписка), выход на госзаказ и тендеры, масштабирование команды</p>
+        </div>
+        <div class="timeline-stage">
+          <p class="stage-label">19+ месяцев</p>
+          <div class="timeline-dot"></div>
+          <p class="stage-title">Масштабирование</p>
+          <p class="stage-desc">Окупаемость, собственные SaaS-продукты (SIEM, антифрод для МСБ), экспорт услуг в РФ и ЦА</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 16: Финансовый план -->
+  <div class="slide" data-slide="16">
+    <div class="corner-accent corner-tl"></div>
+    <span class="t-slide-num">16 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Инвестиции</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Финансовый план</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="t-stat-sm mt-24 mb-20">~$260 000 <span class="t-label" style="font-size: 0.85rem; vertical-align: middle;">первоначальные инвестиции</span></div>
+      <div style="margin-top: 8px;">
+        <div class="fin-bar-row">
+          <span class="fin-bar-label">Фонд оплаты труда (6–8 чел.)</span>
+          <div class="fin-bar-track">
+            <div class="fin-bar-fill" style="width: 50%;">$130K</div>
+          </div>
+        </div>
+        <div class="fin-bar-row">
+          <span class="fin-bar-label">Резервный фонд</span>
+          <div class="fin-bar-track">
+            <div class="fin-bar-fill" style="width: 20.8%; background: linear-gradient(90deg, var(--blue), var(--gold));">$54K</div>
+          </div>
+        </div>
+        <div class="fin-bar-row">
+          <span class="fin-bar-label">Оборудование и ПО</span>
+          <div class="fin-bar-track">
+            <div class="fin-bar-fill" style="width: 15.4%; background: linear-gradient(90deg, var(--gold), var(--copper));">$40K</div>
+          </div>
+        </div>
+        <div class="fin-bar-row">
+          <span class="fin-bar-label">Аренда офиса (1 год)</span>
+          <div class="fin-bar-track">
+            <div class="fin-bar-fill" style="width: 9.6%; background: var(--copper);">$25K</div>
+          </div>
+        </div>
+        <div class="fin-bar-row">
+          <span class="fin-bar-label">Сайт и маркетинг</span>
+          <div class="fin-bar-track">
+            <div class="fin-bar-fill" style="width: 2.7%; background: var(--subtle); font-size: 0.65rem;">$7K</div>
+          </div>
+        </div>
+        <div class="fin-bar-row">
+          <span class="fin-bar-label">Регистрация и юридическое</span>
+          <div class="fin-bar-track">
+            <div class="fin-bar-fill" style="width: 1.5%; background: var(--subtle); font-size: 0.65rem;">$4K</div>
+          </div>
+        </div>
+      </div>
+      <p class="t-label mt-24">Источник: частные инвестиции &nbsp;&middot;&nbsp; Окупаемость: 2.5–3.5 года</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 17: Модель монетизации -->
+  <div class="slide" data-slide="17">
+    <div class="corner-accent corner-br"></div>
+    <span class="t-slide-num">17 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Выручка</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Модель монетизации</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-2 mt-24">
+        <div class="rev-card">
+          <span class="rev-num">01</span>
+          <div>
+            <p class="t-subtitle">Проектная разработка</p>
+            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Fixed Price / Time & Material для крупных заказчиков. Кастомные системы, интеграции, внедрения</p>
+          </div>
+        </div>
+        <div class="rev-card">
+          <span class="rev-num">02</span>
+          <div>
+            <p class="t-subtitle">Managed Services</p>
+            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Рекуррентная выручка от подписки на услуги кибербезопасности — ежемесячная плата за мониторинг и защиту</p>
+          </div>
+        </div>
+        <div class="rev-card">
+          <span class="rev-num">03</span>
+          <div>
+            <p class="t-subtitle">Аутстаффинг</p>
+            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Предоставление security-специалистов и ИИ-инженеров в аренду для проектов заказчиков</p>
+          </div>
+        </div>
+        <div class="rev-card">
+          <span class="rev-num">04</span>
+          <div>
+            <p class="t-subtitle">Лицензии</p>
+            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Лицензионные отчисления от собственных программных продуктов (SIEM, антифрод SaaS)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 18: Риски -->
+  <div class="slide" data-slide="18">
+    <div class="corner-accent corner-tl" style="background: var(--copper);"></div>
+    <span class="t-slide-num">18 / 19</span>
+    <div class="slide-inner">
+      <p class="t-label mb-8">Управление рисками</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Риски и минимизация</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-2 mt-24">
+        <div class="risk-card">
+          <p class="risk-label">Кадровый голод в кибербезопасности</p>
+          <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Острейший дефицит специалистов по ИБ в РТ</p>
+          <div class="risk-mitigation">Сотрудничество с Академией ИИ и вузами, внутренние стажировки, удалённый найм из РФ/Казахстана</div>
+        </div>
+        <div class="risk-card">
+          <p class="risk-label">Конкуренция в госсекторе</p>
+          <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Сложность тендеров, «свои» интеграторы</p>
+          <div class="risk-mitigation">Специалист по тендерам, прозрачная история пилотов, консорциумы с локальными игроками</div>
+        </div>
+        <div class="risk-card">
+          <p class="risk-label">Низкая зрелость заказчиков</p>
+          <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Бизнес и госорганы не понимают применимость ИИ</p>
+          <div class="risk-mitigation">Акцент на обучении, воркшопы, демонстрация конкретного ROI от внедрения</div>
+        </div>
+        <div class="risk-card">
+          <p class="risk-label">Технологические санкции</p>
+          <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Риски блокировки зарубежных API и инструментов</p>
+          <div class="risk-mitigation">Open-source решения, разработка под локальные серверы, диверсификация стека</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 19: Заключение -->
+  <div class="slide slide-gradient" data-slide="19">
+    <span class="t-slide-num">19 / 19</span>
+    <div class="slide-inner" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p class="t-label mb-16">Заключение</p>
+      <h2 class="t-title" style="color: #fff; font-size: clamp(2rem, 4.5vw, 3.8rem); max-width: 900px;">Время входить —<br>инфраструктура строится сейчас</h2>
+      <div style="height: 4px; width: 80px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 28px auto;"></div>
+      <p class="t-body mt-8" style="color: rgba(255,255,255,0.85); max-width: 680px; text-align: center;">Запуск ASAAE Digital в Таджикистане с фокусом на ИИ и кибербезопасность — максимально своевременный шаг, полностью соответствующий госстратегии «Цифровая экономика 2025–2030».</p>
+      <p class="t-body mt-16" style="color: rgba(255,255,255,0.7); max-width: 600px; text-align: center;">Рекуррентные модели дохода (Managed Security Services) и экспортный потенциал ИИ-услуг обеспечат устойчивый рост и выход на окупаемость в среднесрочной перспективе.</p>
+      <div style="margin-top: 48px;">
+        <p class="t-subtitle" style="color: #fff;">asaae.tj</p>
+        <p class="t-label mt-12">ООО «Чахон ИТ» &nbsp;&middot;&nbsp; ASAAE Digital &nbsp;&middot;&nbsp; 2026</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Progress bar -->
+<div id="progress-bar"><div id="progress-fill"></div></div>
+<div id="progress-label">1 / 19</div>
+
+<script>
+(function() {
+  const container = document.getElementById('container');
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  const progressFill = document.getElementById('progress-fill');
+  const progressLabel = document.getElementById('progress-label');
+  let currentSlide = 0;
+  let isScrolling = false;
+
+  function updateProgress() {
+    const pct = ((currentSlide + 1) / totalSlides) * 100;
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = (currentSlide + 1) + ' / ' + totalSlides;
+  }
+
+  function updateVisibility() {
+    slides.forEach((s, i) => {
+      if (i === currentSlide) {
+        s.classList.add('visible');
+      } else {
+        s.classList.remove('visible');
+      }
+    });
+  }
+
+  function scrollToSlide(index) {
+    if (index < 0 || index >= totalSlides || isScrolling) return;
+    isScrolling = true;
+    currentSlide = index;
+    slides[index].scrollIntoView({ behavior: 'smooth' });
+    updateProgress();
+    updateVisibility();
+    setTimeout(() => { isScrolling = false; }, 700);
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      scrollToSlide(currentSlide + 1);
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      scrollToSlide(currentSlide - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      scrollToSlide(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      scrollToSlide(totalSlides - 1);
+    }
+  });
+
+  // Debounced wheel for non-trackpad smooth scroll
+  let wheelTimeout = null;
+  let wheelAccum = 0;
+  container.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    wheelAccum += e.deltaY;
+    if (wheelTimeout) return;
+    wheelTimeout = setTimeout(() => {
+      if (wheelAccum > 30) {
+        scrollToSlide(currentSlide + 1);
+      } else if (wheelAccum < -30) {
+        scrollToSlide(currentSlide - 1);
+      }
+      wheelAccum = 0;
+      wheelTimeout = null;
+    }, 80);
+  }, { passive: false });
+
+  // Detect current slide from scroll position (for touch/trackpad snap)
+  let scrollDetectTimeout = null;
+  container.addEventListener('scroll', function() {
+    if (scrollDetectTimeout) clearTimeout(scrollDetectTimeout);
+    scrollDetectTimeout = setTimeout(() => {
+      const scrollTop = container.scrollTop;
+      const vh = window.innerHeight;
+      const newSlide = Math.round(scrollTop / vh);
+      if (newSlide !== currentSlide && newSlide >= 0 && newSlide < totalSlides) {
+        currentSlide = newSlide;
+        updateProgress();
+        updateVisibility();
+      }
+    }, 100);
+  });
+
+  // Touch navigation
+  let touchStartY = 0;
+  container.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  container.addEventListener('touchend', function(e) {
+    const diff = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) scrollToSlide(currentSlide + 1);
+      else scrollToSlide(currentSlide - 1);
+    }
+  }, { passive: true });
+
+  // Init
+  updateProgress();
+  updateVisibility();
+  slides[0].classList.add('visible');
+})();
+</script>
+
+</body>
+</html>
