@@ -129,6 +129,18 @@ body {
   letter-spacing: 0.08em;
 }
 
+.source-note {
+  font-variation-settings: 'wght' 300, 'wdth' 500;
+  font-size: 0.64rem;
+  line-height: 1.35;
+  color: var(--subtle);
+  opacity: 0.62;
+}
+
+.slide-gradient .source-note {
+  color: rgba(255,255,255,0.5);
+}
+
 .t-slide-num {
   font-variation-settings: 'wght' 300, 'wdth' 500;
   font-size: 0.75rem;
@@ -425,16 +437,21 @@ body {
 
 .fin-bar-fill {
   height: 100%;
+  min-width: 6px;
   border-radius: 4px;
   background: linear-gradient(90deg, var(--green), var(--blue));
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 10px;
+  transition: width 1s ease;
+}
+
+.fin-bar-value {
+  width: 64px;
+  text-align: right;
   font-variation-settings: 'wght' 600, 'wdth' 500;
   font-size: 0.75rem;
-  color: #fff;
-  transition: width 1s ease;
+  color: var(--text);
+  flex-shrink: 0;
 }
 
 /* Revenue model */
@@ -600,6 +617,26 @@ body {
   line-height: 1.45;
 }
 
+/* Slide 10 alignment tune */
+.slide-ai {
+  align-items: flex-start;
+}
+
+.slide-ai .slide-inner {
+  margin-top: 9vh;
+}
+
+.slide-ai .grid-2 {
+  align-items: start;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .slide-ai .slide-inner {
+    margin-top: 4vh;
+  }
+}
+
 /* Gradient corner accents */
 .corner-accent {
   position: absolute;
@@ -664,12 +701,13 @@ body {
   <!-- SLIDE 1: Title -->
   <div class="slide" data-slide="1">
     <div class="gradient-blob" style="width: 55vw; height: 70vh; top: 15vh; right: -5vw;"></div>
-    <span class="t-slide-num">01 / 19</span>
+    <span class="t-slide-num">01 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-16">Бизнес-план выхода на рынок Республики Таджикистан</p>
       <h1 class="t-title" style="font-size: clamp(3rem, 7vw, 6rem);">ASAAE<br>Digital.</h1>
       <div class="gradient-bar-thick mt-32"></div>
-      <p class="t-body mt-20" style="max-width: 480px;">Стратегический партнёр государства и бизнеса в области ИИ и кибербезопасности</p>
+      <p class="t-body mt-20" style="max-width: 560px;">Стратегический партнёр в области кибербезопасности, ИИ и комплексных IT-решений</p>
+      <p class="t-label mt-20" style="max-width: 720px;">«Объявить 2025–2030 годы Годами развития цифровой экономики и инноваций».<br>Уважаемый Лидер нации, Президент РТ Эмомали Рахмон</p>
       <p class="t-label mt-32">ООО «Чахон ИТ» &nbsp;&middot;&nbsp; asaae.tj &nbsp;&middot;&nbsp; 2026</p>
     </div>
   </div>
@@ -677,16 +715,16 @@ body {
   <!-- SLIDE 2: Резюме -->
   <div class="slide" data-slide="2">
     <div class="corner-accent corner-tr"></div>
-    <span class="t-slide-num">02 / 19</span>
+    <span class="t-slide-num">02 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Резюме проекта</p>
       <h2 class="t-title">Занять нишу<br><span class="gradient-text">стратегического партнёра</span></h2>
       <div class="gradient-bar" style="width: 80px;"></div>
       <p class="t-body mt-16" style="max-width: 700px;">Стратегия выхода и операционной деятельности IT-компании «Чахон ИТ» под брендом ASAAE Digital — с фокусом на ИИ и кибербезопасность в рамках национальной цифровизации.</p>
       <ul class="bullet-list mt-24">
-        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Соответствие госстратегии:</strong> полная корреляция с «Концепцией цифровой экономики 2025–2030», «Стратегией ИИ до 2040» и Программой национального развития 2026–2030</span></li>
-        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Уникальная экспертиза:</strong> ИИ + кибербезопасность выделяют компанию на фоне локальных игроков, предлагающих стандартную автоматизацию</span></li>
-        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Перспективный рынок:</strong> растущий спрос на кибербезопасность в банковском секторе и госорганах, формирование ИИ-экосистемы (Area AI 1.0, Академия ИИ)</span></li>
+        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Соответствие приоритетам цифровизации:</strong> фокус на проектах для госорганов, финансового и корпоративного сектора</span></li>
+        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Уникальная экспертиза:</strong> опыт выстраивания IT-архитектуры и внедрения комплексных IT-решений с контуром кибербезопасности</span></li>
+        <li><span class="t-body"><strong style="font-variation-settings: 'wght' 600, 'wdth' 500;">Перспективный рынок:</strong> устойчивый спрос на кибербезопасность, модернизацию ИС и отраслевую автоматизацию</span></li>
       </ul>
       <div class="stat-row mt-32">
         <div class="stat-block">
@@ -705,7 +743,7 @@ body {
   <div class="slide" data-slide="3">
     <div class="corner-accent corner-tl"></div>
     <div class="corner-accent corner-br"></div>
-    <span class="t-slide-num">03 / 19</span>
+    <span class="t-slide-num">03 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Макроэкономика</p>
       <h2 class="t-title">Почему Таджикистан.<br>Почему сейчас.</h2>
@@ -721,18 +759,19 @@ body {
         </div>
         <div class="stat-block">
           <div class="t-stat">B</div>
-          <p class="t-label">рейтинг S&P (повышен)</p>
+          <p class="t-label">рейтинг S&amp;P (повышен)</p>
         </div>
       </div>
       <p class="t-body mt-32" style="max-width: 680px;">Указ Президента: 2025–2030 — «Годы цифровой экономики и инновационного развития». Семь приоритетных направлений, включая ИИ, кибербезопасность и цифровую инфраструктуру.</p>
       <p class="t-body mt-12" style="max-width: 680px; color: var(--subtle);">IT Park Dushanbe: 0% налог на прибыль, 0% НДС, 0% на дивиденды для резидентов. 22 одобренных направления инноваций.</p>
+      <p class="source-note mt-16">Источник: World Bank, 2025</p>
     </div>
   </div>
 
   <!-- SLIDE 4: Стратегические документы -->
   <div class="slide" data-slide="4">
     <div class="corner-accent corner-tr"></div>
-    <span class="t-slide-num">04 / 19</span>
+    <span class="t-slide-num">04 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Нормативная база</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Стратегические документы</h2>
@@ -746,7 +785,7 @@ body {
         <div class="strat-card">
           <p class="t-label">до 2040</p>
           <p class="strat-card-title">Стратегия развития ИИ в РТ</p>
-          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Первая в ЦА. Академия ИИ, Area AI, ИИ в вузах. Цель: 5% ВВП от ИИ</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Развитие прикладного ИИ через вузы и государственные учреждения, подготовка кадров и внедрение в ключевые отрасли</p>
         </div>
         <div class="strat-card">
           <p class="t-label">2025–2029</p>
@@ -755,8 +794,8 @@ body {
         </div>
         <div class="strat-card">
           <p class="t-label">2026–2030</p>
-          <p class="strat-card-title">Программа национального развития</p>
-          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Цифровизация, индустриализация, ИИ и поддержка R&D</p>
+          <p class="strat-card-title">Практика цифровой трансформации</p>
+          <p class="t-body mt-8" style="font-size: 0.82rem; color: var(--subtle);">Прикладные проекты по модернизации ИС, развитию e-gov сервисов и цифровой инфраструктуры</p>
         </div>
         <div class="strat-card">
           <p class="t-label">2025</p>
@@ -772,48 +811,18 @@ body {
     </div>
   </div>
 
-  <!-- SLIDE 5: ИИ-амбиции -->
-  <div class="slide slide-gradient" data-slide="5">
-    <span class="t-slide-num">05 / 19</span>
-    <div class="slide-inner">
-      <p class="t-label mb-8">Искусственный интеллект</p>
-      <h2 class="t-title" style="color: #fff;">ИИ-амбиции:<br>самые смелые в ЦА</h2>
-      <div style="height: 4px; width: 80px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 20px 0;"></div>
-      <div class="stat-row">
-        <div class="stat-block">
-          <div class="t-stat" style="color: #fff;">$117M</div>
-          <p class="t-label">соглашения на AI Conf 2025</p>
-        </div>
-        <div class="stat-block">
-          <div class="t-stat" style="color: #fff;">2040</div>
-          <p class="t-label">горизонт стратегии ИИ</p>
-        </div>
-        <div class="stat-block">
-          <div class="t-stat" style="color: #fff;">700+</div>
-          <p class="t-label">обученных специалистов</p>
-        </div>
-      </div>
-      <ul class="bullet-list bullet-list-white mt-32" style="max-width: 700px;">
-        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">Area AI 1.0 — первая в мире «Специальная зона ИИ», хаб в Душанбе</span></li>
-        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">Партнёрства: Google DeepMind, NVIDIA, Perplexity AI, Mistral AI, Scale AI</span></li>
-        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">Резолюция ООН (единогласно): Региональный центр ИИ в Душанбе</span></li>
-        <li><span class="t-body" style="color: rgba(255,255,255,0.9);">SoroLLM — языковая модель на 27 млрд параметров для таджикского языка</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SLIDE 6: Кибербезопасность: проблема -->
-  <div class="slide" data-slide="6">
+  <!-- SLIDE 5: Кибербезопасность: проблема -->
+  <div class="slide" data-slide="5">
     <div class="corner-accent corner-tl" style="background: #b4503c;"></div>
-    <span class="t-slide-num">06 / 19</span>
+    <span class="t-slide-num">05 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Кибербезопасность</p>
-      <h2 class="t-title">Критические уязвимости</h2>
+      <h2 class="t-title">Зоны усиления киберзащиты</h2>
       <div class="gradient-bar" style="width: 80px;"></div>
       <div class="stat-row">
         <div class="stat-block">
           <div class="t-stat" style="color: #b4503c;">60.69%</div>
-          <p class="t-label">пользователей атакованы (лидер СНГ)</p>
+          <p class="t-label">пользователей столкнулись с киберугрозами</p>
         </div>
         <div class="stat-block">
           <div class="t-stat" style="color: #b4503c;">2.6&times;</div>
@@ -824,9 +833,9 @@ body {
         <div>
           <p class="t-subtitle mb-12">Институциональные пробелы</p>
           <ul class="bullet-list">
-            <li><span class="t-body">Нет национального CERT (есть у Казахстана, Узбекистана, Кыргызстана)</span></li>
-            <li><span class="t-body">Нет обязательного регулирования кибербезопасности в банках</span></li>
-            <li><span class="t-body">28% целевых атак — на финансовый сектор</span></li>
+            <li><span class="t-body">Этап формирования национального контура реагирования на киберинциденты</span></li>
+            <li><span class="t-body">Рост спроса на стандартизированные ИБ-процессы в банках и госИС</span></li>
+            <li><span class="t-body">До 28% целевых атак приходится на финансовый сектор</span></li>
           </ul>
         </div>
         <div>
@@ -838,13 +847,14 @@ body {
           </ul>
         </div>
       </div>
+      <p class="source-note mt-16">Источник: Kaspersky, 2024</p>
     </div>
   </div>
 
-  <!-- SLIDE 7: Банковский сектор -->
-  <div class="slide" data-slide="7">
+  <!-- SLIDE 6: Банковский сектор -->
+  <div class="slide" data-slide="6">
     <div class="corner-accent corner-br"></div>
-    <span class="t-slide-num">07 / 19</span>
+    <span class="t-slide-num">06 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Финансовый сектор</p>
       <h2 class="t-title">Банковский бум<br><span class="gradient-text">создаёт спрос</span></h2>
@@ -866,25 +876,26 @@ body {
       <div class="grid-2 mt-32">
         <div>
           <ul class="bullet-list">
-            <li><span class="t-body">Alif Bank: 2.2M+ клиентов, 50%+ Visa-платежей в РТ</span></li>
-            <li><span class="t-body">Freedom Bank: первая цифровая ипотека, рост портфеля на 173%</span></li>
-            <li><span class="t-body">Humo и Imon получили полные банковские лицензии в 2025</span></li>
+            <li><span class="t-body">ДС Банк: активы 3.82 млрд сомони (+48.0% г/г), депозиты 2.9 млрд сомони (+99% г/г)</span></li>
+            <li><span class="t-body">Freedom Bank: первая цифровая ипотека, рост кредитного портфеля на 173.3% (Q4 2025)</span></li>
+            <li><span class="t-body">Humo и Imon: банковские лицензии в 2025; совокупно около 10% активов сектора</span></li>
           </ul>
         </div>
         <div>
           <ul class="bullet-list">
             <li><span class="t-body">Безналичные платежи: 38.9% оборота, прогноз 55–65% к 2030</span></li>
             <li><span class="t-body">Переводы: $5.8B в 2024 (45% ВВП) через цифровые каналы</span></li>
-            <li><span class="t-body">Google Pay запущен в 2024, Korti Milli + HUMO интеграция</span></li>
+            <li><span class="t-body">Доля безналичных платежей: +9.4 п.п. за год (до 38.9%)</span></li>
           </ul>
         </div>
       </div>
+      <p class="source-note mt-16">Источник: Kursiv Research по данным НБТ, 2025</p>
     </div>
   </div>
 
-  <!-- SLIDE 8: Зоны роста -->
-  <div class="slide slide-gradient" data-slide="8">
-    <span class="t-slide-num">08 / 19</span>
+  <!-- SLIDE 7: Зоны роста -->
+  <div class="slide slide-gradient" data-slide="7">
+    <span class="t-slide-num">07 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Рыночный анализ</p>
       <h2 class="t-title" style="color: #fff;">Три зоны роста</h2>
@@ -902,17 +913,17 @@ body {
         </div>
         <div class="card-dark">
           <p class="t-stat-sm" style="color: #fff;">03</p>
-          <p class="t-subtitle mt-12" style="color: #fff;">Облачная инфраструктура</p>
-          <p class="t-body mt-8" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">ЦОД, частные облака, миграция данных, безопасность облачных сред</p>
+          <p class="t-subtitle mt-12" style="color: #fff;">Комплексные IT-решения</p>
+          <p class="t-body mt-8" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">Проектирование комплексной IT-архитектуры, интеграция систем, поэтапная модернизация ИС</p>
         </div>
       </div>
       <p class="t-body mt-32" style="color: rgba(255,255,255,0.7); max-width: 600px;">Наибольший потенциал и государственная поддержка сконцентрированы в ИИ и кибербезопасности. Нет доминирующего локального игрока в кибербезопасности.</p>
     </div>
   </div>
 
-  <!-- SLIDE 9: SWOT -->
-  <div class="slide" data-slide="9">
-    <span class="t-slide-num">09 / 19</span>
+  <!-- SLIDE 8: SWOT -->
+  <div class="slide" data-slide="8">
+    <span class="t-slide-num">08 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Стратегический анализ</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">SWOT-анализ</h2>
@@ -932,7 +943,7 @@ body {
           <ul class="bullet-list">
             <li><span class="t-body" style="font-size: 0.85rem;">Нет локальной репутации и кейсов</span></li>
             <li><span class="t-body" style="font-size: 0.85rem;">Незнание местных бизнес-процессов</span></li>
-            <li><span class="t-body" style="font-size: 0.85rem;">Зависимость от найма локальных кадров</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Сложный старт по доступу к данным и контрагентам в госсекторе</span></li>
           </ul>
         </div>
         <div class="swot-cell swot-o">
@@ -940,27 +951,27 @@ body {
           <ul class="bullet-list">
             <li><span class="t-body" style="font-size: 0.85rem;">Полное соответствие госстратегии «Цифровая экономика 2025–2030»</span></li>
             <li><span class="t-body" style="font-size: 0.85rem;">Высокий неудовлетворённый спрос на кибербезопасность</span></li>
-            <li><span class="t-body" style="font-size: 0.85rem;">Господдержка ИИ (Area AI, Академия)</span></li>
-            <li><span class="t-body" style="font-size: 0.85rem;">Потенциал экспорта ИИ-услуг</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Развитие проектов через вузы и профильные госучреждения</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Спрос на комплексные IT-архитектуры и модернизацию ИС</span></li>
           </ul>
         </div>
         <div class="swot-cell swot-t">
           <h3>T &mdash; Угрозы</h3>
           <ul class="bullet-list">
             <li><span class="t-body" style="font-size: 0.85rem;">Кадровый голод: дефицит security-специалистов</span></li>
-            <li><span class="t-body" style="font-size: 0.85rem;">Политическая и экономическая нестабильность</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Длительные циклы согласований и закупочных процедур</span></li>
             <li><span class="t-body" style="font-size: 0.85rem;">Риски доступа к зарубежным технологиям</span></li>
-            <li><span class="t-body" style="font-size: 0.85rem;">Высокая стоимость входа в госсектор</span></li>
+            <li><span class="t-body" style="font-size: 0.85rem;">Высокая стоимость и длительность входа в госсектор</span></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 10: Направление 1 — Кибербезопасность -->
-  <div class="slide" data-slide="10">
+  <!-- SLIDE 9: Направление 1 — Кибербезопасность -->
+  <div class="slide" data-slide="9">
     <div class="corner-accent corner-tl"></div>
-    <span class="t-slide-num">10 / 19</span>
+    <span class="t-slide-num">09 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Направление 1</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Кибербезопасность</h2>
@@ -970,22 +981,22 @@ body {
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Аудит и консалтинг</p>
-              <p class="service-desc">Оценка защищённости ИС, анализ рисков, приведение в соответствие с требованиями регуляторов</p>
+              <p class="service-title">Оценка защищённости и архитектуры ИБ</p>
+              <p class="service-desc">Аудит текущего состояния, карта рисков, проектирование целевой архитектуры защиты и roadmap внедрения</p>
             </div>
           </div>
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Тестирование на проникновение</p>
-              <p class="service-desc">Поиск уязвимостей в веб- и мобильных приложениях, инфраструктуре заказчика</p>
+              <p class="service-title">Pentest и Red Team</p>
+              <p class="service-desc">Тестирование веб/мобильных приложений, внешнего и внутреннего периметра, проверка сценариев реальных атак</p>
             </div>
           </div>
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Managed Security Services</p>
-              <p class="service-desc">Мониторинг ИБ (SIEM), управление средствами защиты, реагирование на инциденты</p>
+              <p class="service-title">SOC / Managed Security Services</p>
+              <p class="service-desc">24/7 мониторинг событий ИБ (SIEM/SOAR), приоритизация алертов, управление инцидентами и отчётность</p>
             </div>
           </div>
         </div>
@@ -993,27 +1004,34 @@ body {
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Защита от фрода</p>
-              <p class="service-desc">ИИ-системы анализа транзакций в реальном времени для банков и финтех</p>
+              <p class="service-title">Incident Response и DFIR</p>
+              <p class="service-desc">План реагирования, локализация инцидентов, цифровая криминалистика, восстановление и пост-инцидентный анализ</p>
             </div>
           </div>
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Облачная безопасность</p>
-              <p class="service-desc">Защита данных и приложений в облачных средах, контроль доступа</p>
+              <p class="service-title">Anti-fraud и защита платежей</p>
+              <p class="service-desc">Модели обнаружения мошенничества в реальном времени, риск-скоринг операций, мониторинг аномалий</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">GRC и подготовка персонала</p>
+              <p class="service-desc">Политики ИБ, процессы управления уязвимостями, обучение сотрудников и tabletop-учения для руководства</p>
             </div>
           </div>
         </div>
       </div>
-      <p class="t-body mt-24" style="color: var(--subtle); max-width: 600px;">Целевые клиенты: банки (25% IT-бюджета на безопасность), госорганы, финтех-компании. AFOT определила кибербезопасность стратегическим приоритетом на 2025.</p>
+      <p class="t-body mt-24" style="color: var(--subtle); max-width: 760px;">Целевые заказчики: банки, госучреждения, финтех и крупный корпоративный сектор. Портфель услуг покрывает полный цикл: оценка, предотвращение, мониторинг, реагирование и развитие процессов ИБ.</p>
     </div>
   </div>
 
-  <!-- SLIDE 11: Направление 2 — ИИ и Data Science -->
-  <div class="slide" data-slide="11">
+  <!-- SLIDE 10: Направление 2 — ИИ и Data Science -->
+  <div class="slide slide-ai" data-slide="10">
     <div class="corner-accent corner-br"></div>
-    <span class="t-slide-num">11 / 19</span>
+    <span class="t-slide-num">10 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Направление 2</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">ИИ и Data Science</h2>
@@ -1023,15 +1041,22 @@ body {
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Промышленный ИИ</p>
-              <p class="service-desc">Нейросети для предиктивной диагностики турбин ГЭС и горного оборудования. Компьютерное зрение для контроля ТБ</p>
+              <p class="service-title">Госсектор (AI GOV)</p>
+              <p class="service-desc">Автоматизация госуслуг, интеллектуальная маршрутизация обращений, ассистенты для ведомств, аналитика управленческих решений</p>
             </div>
           </div>
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">ИИ для госсектора (AI GOV)</p>
-              <p class="service-desc">Чат-боты и голосовые помощники на таджикском и русском (NLP). Системы поддержки принятия решений</p>
+              <p class="service-title">Энергетика и промышленность</p>
+              <p class="service-desc">Предиктивная диагностика ГЭС и сетевой инфраструктуры, контроль потерь, computer vision для безопасности и технадзора</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-bullet">&mdash;</span>
+            <div>
+              <p class="service-title">Бизнес-аналитика и финмодели</p>
+              <p class="service-desc">Прогнозирование спроса, оптимизация логистики, скоринг и аналитика рисков для финансовых организаций</p>
             </div>
           </div>
         </div>
@@ -1039,15 +1064,15 @@ body {
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Бизнес-аналитика</p>
-              <p class="service-desc">ИИ-модели для прогнозирования спроса, оптимизации логистики, скоринга в кредитных организациях</p>
+              <p class="service-title">Сельское хозяйство</p>
+              <p class="service-desc">Оптимизация орошения, прогноз урожайности, оценка рисков по агрозонам, мониторинг состояния посевов</p>
             </div>
           </div>
           <div class="service-item">
             <span class="service-bullet">&mdash;</span>
             <div>
-              <p class="service-title">Сельское хозяйство</p>
-              <p class="service-desc">ИИ-системы оптимизации орошения и прогнозирования урожайности — критически важно для РТ</p>
+              <p class="service-title">Социальный и муниципальный контур</p>
+              <p class="service-desc">Модели планирования в здравоохранении и образовании, аналитика городских сервисов, прогнозирование нагрузки по услугам</p>
             </div>
           </div>
         </div>
@@ -1055,58 +1080,104 @@ body {
     </div>
   </div>
 
-  <!-- SLIDE 12: Проект — AI HR Agent -->
-  <div class="slide" data-slide="12">
+  <!-- SLIDE 11: Проектный портфель -->
+  <div class="slide" data-slide="11">
     <div class="corner-accent corner-br" style="background: var(--blue);"></div>
-    <span class="t-slide-num">12 / 19</span>
+    <span class="t-slide-num">11 / 18</span>
     <div class="slide-inner">
-      <p class="t-label mb-8">Проект</p>
-      <h2 class="t-title"><span class="gradient-text">AI HR Agent</span></h2>
-      <div class="gradient-bar-thick"></div>
-      <p class="t-body mt-16" style="color: var(--subtle); max-width: 600px;">&nbsp;</p>
+      <p class="t-label mb-8">Проекты</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Приоритетный проектный портфель</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-3 mt-24">
+        <div class="card">
+          <p class="t-subtitle mb-8">ИИ Агент (HR)</p>
+          <p class="t-body" style="font-size: 0.84rem; color: var(--subtle);">Автоматизирует подбор: собирает вакансии и резюме с веб-сайтов, фильтрует кандидатов по критериям, формирует short-list и рекомендации рекрутеру</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Интеграционная Шина</p>
+          <p class="t-body" style="font-size: 0.84rem; color: var(--subtle);">Единый слой интеграции для ведомственных ИС и внешних сервисов: API-шлюз, маршрутизация, мониторинг и контроль SLA обмена</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">ИИ-Классификатор</p>
+          <p class="t-body" style="font-size: 0.84rem; color: var(--subtle);">Автоматическая классификация обращений, документов и заявок с приоритизацией, сокращением времени обработки и снижением ручной нагрузки</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Data Governance</p>
+          <p class="t-body" style="font-size: 0.84rem; color: var(--subtle);">Модель управления данными: каталог данных, роли и доступы, контроль качества, трассируемость и регламент обмена между системами</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Система гарантирования доходов / Anti-fraud</p>
+          <p class="t-body" style="font-size: 0.84rem; color: var(--subtle);">Выявление потерь доходов и мошенничества в транзакциях, скоринг рисков в реальном времени, уведомления и сценарии реагирования</p>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Личный кабинет (Web/Mobile)</p>
+          <p class="t-body" style="font-size: 0.84rem; color: var(--subtle);">Приложение для взаимодействия с клиентами и населением: заявки, статус услуг, уведомления, обратная связь, безопасная авторизация</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- SLIDE 13: Проект — Anti-fraud System -->
-  <div class="slide" data-slide="13">
+  <!-- SLIDE 12: Проработка проектов -->
+  <div class="slide" data-slide="12">
     <div class="corner-accent corner-tl" style="background: var(--green);"></div>
-    <span class="t-slide-num">13 / 19</span>
+    <span class="t-slide-num">12 / 18</span>
     <div class="slide-inner">
-      <p class="t-label mb-8">Проект</p>
-      <h2 class="t-title"><span class="gradient-text">Anti-fraud System</span></h2>
-      <div class="gradient-bar-thick"></div>
-      <p class="t-body mt-16" style="color: var(--subtle); max-width: 600px;">&nbsp;</p>
+      <p class="t-label mb-8">Проекты</p>
+      <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Проработка и формат реализации</h2>
+      <div class="gradient-bar" style="width: 80px;"></div>
+      <div class="grid-2 mt-24">
+        <div class="card">
+          <p class="t-subtitle mb-8">Этапы реализации</p>
+          <ul class="bullet-list">
+            <li><span class="t-body" style="font-size: 0.84rem;">Обследование и сбор требований: интервью, инвентаризация ИС, карта процессов</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Проектирование: целевая архитектура, интеграционные контракты, модель данных и безопасности</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Пилот и внедрение: MVP, интеграционное тестирование, обучение пользователей</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Эксплуатация и развитие: SLA-поддержка, метрики эффективности, план масштабирования</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="t-subtitle mb-8">Результат для заказчика</p>
+          <ul class="bullet-list">
+            <li><span class="t-body" style="font-size: 0.84rem;">Ускорение найма за счёт ИИ-агента: поиск вакансий/кандидатов на веб-сайтах и первичный скоринг релевантности</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Снижение времени обработки обращений и документов за счёт ИИ-классификации</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Прозрачный и управляемый обмен данными через интеграционную шину</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Контроль качества данных и единые правила Data Governance</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Снижение финансовых потерь и рост защищённости транзакций через Anti-fraud</span></li>
+            <li><span class="t-body" style="font-size: 0.84rem;">Повышение удовлетворённости пользователей через личный кабинет и мобильный сервис</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- SLIDE 14: Направление 3 — Разработка ПО -->
-  <div class="slide" data-slide="14">
+  <!-- SLIDE 13: Направление 3 — Разработка ПО -->
+  <div class="slide" data-slide="13">
     <div class="corner-accent corner-tr"></div>
-    <span class="t-slide-num">14 / 19</span>
+    <span class="t-slide-num">13 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Направление 3</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Разработка ПО</h2>
       <div class="gradient-bar" style="width: 80px;"></div>
       <div class="grid-3 mt-24">
         <div class="card">
-          <p class="t-subtitle mb-8">ERP / CRM</p>
-          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Кастомные системы для локального бизнеса с фокусом на безопасность и интеграцию с ИИ-сервисами</p>
+          <p class="t-subtitle mb-8">Корпоративные платформы</p>
+          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Кастомные ERP/CRM и отраслевые решения с фокусом на безопасность, отказоустойчивость и масштабируемость</p>
         </div>
         <div class="card">
           <p class="t-subtitle mb-8">Госсистемы</p>
-          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Ведомственные ИС, электронный документооборот, порталы данных для государственных заказчиков</p>
+          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Ведомственные ИС, электронный документооборот, межведомственный обмен данными, порталы госуслуг</p>
         </div>
         <div class="card">
-          <p class="t-subtitle mb-8">Облачные решения</p>
-          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">SaaS-платформы, частные облака, миграция и обеспечение безопасности в облачных средах</p>
+          <p class="t-subtitle mb-8">Комплексные IT-архитектуры</p>
+          <p class="t-body" style="font-size: 0.85rem; color: var(--subtle);">Архитектурный аудит, интеграционные шины/API, поэтапная модернизация legacy-систем и сопровождение внедрения</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 15: План реализации -->
-  <div class="slide" data-slide="15">
-    <span class="t-slide-num">15 / 19</span>
+  <!-- SLIDE 14: План реализации -->
+  <div class="slide" data-slide="14">
+    <span class="t-slide-num">14 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Дорожная карта</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">План реализации</h2>
@@ -1116,7 +1187,7 @@ body {
           <p class="stage-label">Месяцы 1–3</p>
           <div class="timeline-dot"></div>
           <p class="stage-title">Подготовка</p>
-          <p class="stage-desc">Регистрация ООО, запуск asaae.tj, контакты с Агентством инноваций, партнёрство с Area AI и Академией ИИ, найм ключевых сотрудников</p>
+          <p class="stage-desc">Регистрация ООО, запуск asaae.tj, контакты с профильными госучреждениями, партнёрство с вузами и IT-компаниями из РФ, найм ключевых сотрудников</p>
         </div>
         <div class="timeline-stage">
           <p class="stage-label">Месяцы 4–9</p>
@@ -1128,7 +1199,7 @@ body {
           <p class="stage-label">Месяцы 10–18</p>
           <div class="timeline-dot"></div>
           <p class="stage-title">Коммерция</p>
-          <p class="stage-desc">Запуск продаж MSS (подписка), выход на госзаказ и тендеры, масштабирование команды</p>
+          <p class="stage-desc">Запуск продаж MSS (подписка), поэтапный выход на госзаказ и тендерные платформы, масштабирование команды</p>
         </div>
         <div class="timeline-stage">
           <p class="stage-label">19+ месяцев</p>
@@ -1140,10 +1211,10 @@ body {
     </div>
   </div>
 
-  <!-- SLIDE 16: Финансовый план -->
-  <div class="slide" data-slide="16">
+  <!-- SLIDE 15: Финансовый план -->
+  <div class="slide" data-slide="15">
     <div class="corner-accent corner-tl"></div>
-    <span class="t-slide-num">16 / 19</span>
+    <span class="t-slide-num">15 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Инвестиции</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Финансовый план</h2>
@@ -1153,48 +1224,54 @@ body {
         <div class="fin-bar-row">
           <span class="fin-bar-label">Фонд оплаты труда (6–8 чел.)</span>
           <div class="fin-bar-track">
-            <div class="fin-bar-fill" style="width: 50%;">$130K</div>
+            <div class="fin-bar-fill" style="width: 50%;"></div>
           </div>
+          <span class="fin-bar-value">$130K</span>
         </div>
         <div class="fin-bar-row">
           <span class="fin-bar-label">Резервный фонд</span>
           <div class="fin-bar-track">
-            <div class="fin-bar-fill" style="width: 20.8%; background: linear-gradient(90deg, var(--blue), var(--gold));">$54K</div>
+            <div class="fin-bar-fill" style="width: 20.8%; background: linear-gradient(90deg, var(--blue), var(--gold));"></div>
           </div>
+          <span class="fin-bar-value">$54K</span>
         </div>
         <div class="fin-bar-row">
           <span class="fin-bar-label">Оборудование и ПО</span>
           <div class="fin-bar-track">
-            <div class="fin-bar-fill" style="width: 15.4%; background: linear-gradient(90deg, var(--gold), var(--copper));">$40K</div>
+            <div class="fin-bar-fill" style="width: 15.4%; background: linear-gradient(90deg, var(--gold), var(--copper));"></div>
           </div>
+          <span class="fin-bar-value">$40K</span>
         </div>
         <div class="fin-bar-row">
           <span class="fin-bar-label">Аренда офиса (1 год)</span>
           <div class="fin-bar-track">
-            <div class="fin-bar-fill" style="width: 9.6%; background: var(--copper);">$25K</div>
+            <div class="fin-bar-fill" style="width: 9.6%; background: var(--copper);"></div>
           </div>
+          <span class="fin-bar-value">$25K</span>
         </div>
         <div class="fin-bar-row">
           <span class="fin-bar-label">Сайт и маркетинг</span>
           <div class="fin-bar-track">
-            <div class="fin-bar-fill" style="width: 2.7%; background: var(--subtle); font-size: 0.65rem;">$7K</div>
+            <div class="fin-bar-fill" style="width: 2.7%; background: var(--subtle);"></div>
           </div>
+          <span class="fin-bar-value">$7K</span>
         </div>
         <div class="fin-bar-row">
           <span class="fin-bar-label">Регистрация и юридическое</span>
           <div class="fin-bar-track">
-            <div class="fin-bar-fill" style="width: 1.5%; background: var(--subtle); font-size: 0.65rem;">$4K</div>
+            <div class="fin-bar-fill" style="width: 1.5%; background: var(--subtle);"></div>
           </div>
+          <span class="fin-bar-value">$4K</span>
         </div>
       </div>
-      <p class="t-label mt-24">Источник: частные инвестиции &nbsp;&middot;&nbsp; Окупаемость: 2.5–3.5 года</p>
+      <p class="source-note mt-24">Источник: частные инвестиции &nbsp;&middot;&nbsp; Окупаемость: 2.5–3.5 года</p>
     </div>
   </div>
 
-  <!-- SLIDE 17: Модель монетизации -->
-  <div class="slide" data-slide="17">
+  <!-- SLIDE 16: Модель монетизации -->
+  <div class="slide" data-slide="16">
     <div class="corner-accent corner-br"></div>
-    <span class="t-slide-num">17 / 19</span>
+    <span class="t-slide-num">16 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Выручка</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Модель монетизации</h2>
@@ -1204,7 +1281,7 @@ body {
           <span class="rev-num">01</span>
           <div>
             <p class="t-subtitle">Проектная разработка</p>
-            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Fixed Price / Time & Material для крупных заказчиков. Кастомные системы, интеграции, внедрения</p>
+            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Fixed Price / Time &amp; Material для крупных заказчиков. Кастомные системы, интеграции, внедрения</p>
           </div>
         </div>
         <div class="rev-card">
@@ -1217,8 +1294,8 @@ body {
         <div class="rev-card">
           <span class="rev-num">03</span>
           <div>
-            <p class="t-subtitle">Аутстаффинг</p>
-            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Предоставление security-специалистов и ИИ-инженеров в аренду для проектов заказчиков</p>
+            <p class="t-subtitle">Сервисные SLA-контракты</p>
+            <p class="t-body mt-8" style="font-size: 0.85rem; color: var(--subtle);">Долгосрочное сопровождение ИС, контракты на поддержку кибербезопасности и развитие функционала по SLA</p>
           </div>
         </div>
         <div class="rev-card">
@@ -1232,10 +1309,10 @@ body {
     </div>
   </div>
 
-  <!-- SLIDE 18: Риски -->
-  <div class="slide" data-slide="18">
+  <!-- SLIDE 17: Риски -->
+  <div class="slide" data-slide="17">
     <div class="corner-accent corner-tl" style="background: var(--copper);"></div>
-    <span class="t-slide-num">18 / 19</span>
+    <span class="t-slide-num">17 / 18</span>
     <div class="slide-inner">
       <p class="t-label mb-8">Управление рисками</p>
       <h2 class="t-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">Риски и минимизация</h2>
@@ -1244,12 +1321,12 @@ body {
         <div class="risk-card">
           <p class="risk-label">Кадровый голод в кибербезопасности</p>
           <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Острейший дефицит специалистов по ИБ в РТ</p>
-          <div class="risk-mitigation">Сотрудничество с Академией ИИ и вузами, внутренние стажировки, удалённый найм из РФ/Казахстана</div>
+          <div class="risk-mitigation">Сотрудничество с вузами и профильными госучреждениями, внутренние стажировки, удалённый найм из РФ и совместные проекты с РФ-компаниями</div>
         </div>
         <div class="risk-card">
           <p class="risk-label">Конкуренция в госсекторе</p>
-          <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Сложность тендеров, «свои» интеграторы</p>
-          <div class="risk-mitigation">Специалист по тендерам, прозрачная история пилотов, консорциумы с локальными игроками</div>
+          <p class="t-body" style="font-size: 0.82rem; color: var(--subtle);">Сложность получения информации по проектам, предквалификация и длительный цикл работы с тендерными платформами</p>
+          <div class="risk-mitigation">Выделенная тендерная функция, стандартизированные pre-sale материалы, поэтапный вход через пилоты и партнёрские консорциумы</div>
         </div>
         <div class="risk-card">
           <p class="risk-label">Низкая зрелость заказчиков</p>
@@ -1265,15 +1342,15 @@ body {
     </div>
   </div>
 
-  <!-- SLIDE 19: Заключение -->
-  <div class="slide slide-gradient" data-slide="19">
-    <span class="t-slide-num">19 / 19</span>
+  <!-- SLIDE 18: Заключение -->
+  <div class="slide slide-gradient" data-slide="18">
+    <span class="t-slide-num">18 / 18</span>
     <div class="slide-inner" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
       <p class="t-label mb-16">Заключение</p>
       <h2 class="t-title" style="color: #fff; font-size: clamp(2rem, 4.5vw, 3.8rem); max-width: 900px;">Время входить —<br>инфраструктура строится сейчас</h2>
       <div style="height: 4px; width: 80px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 28px auto;"></div>
       <p class="t-body mt-8" style="color: rgba(255,255,255,0.85); max-width: 680px; text-align: center;">Запуск ASAAE Digital в Таджикистане с фокусом на ИИ и кибербезопасность — максимально своевременный шаг, полностью соответствующий госстратегии «Цифровая экономика 2025–2030».</p>
-      <p class="t-body mt-16" style="color: rgba(255,255,255,0.7); max-width: 600px; text-align: center;">Рекуррентные модели дохода (Managed Security Services) и экспортный потенциал ИИ-услуг обеспечат устойчивый рост и выход на окупаемость в среднесрочной перспективе.</p>
+      <p class="t-body mt-16" style="color: rgba(255,255,255,0.7); max-width: 760px; text-align: center;">«Объявить 2025–2030 годы Годами развития цифровой экономики и инноваций».<br>Уважаемый Лидер нации, Президент РТ Эмомали Рахмон</p>
       <div style="margin-top: 48px;">
         <p class="t-subtitle" style="color: #fff;">asaae.tj</p>
         <p class="t-label mt-12">ООО «Чахон ИТ» &nbsp;&middot;&nbsp; ASAAE Digital &nbsp;&middot;&nbsp; 2026</p>
@@ -1285,7 +1362,7 @@ body {
 
 <!-- Progress bar -->
 <div id="progress-bar"><div id="progress-fill"></div></div>
-<div id="progress-label">1 / 19</div>
+<div id="progress-label">1 / 18</div>
 
 <script>
 (function() {
